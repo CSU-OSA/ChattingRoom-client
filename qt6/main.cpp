@@ -1,11 +1,11 @@
-#include "csu.h"
+#include "CSUchatting.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    csu w;
+    CSUchatting w;
     w.show();
     return a.exec();
 }
