@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include <QMainWindow>
+
 #include <QDebug>
 #include <QtNetwork>
 #include <QNetworkAccessManager>
@@ -15,6 +15,8 @@
 #include <QDateTime>
 
 #include <QPushButton>
+
+#include "renew.h"
 #pragma once
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -35,6 +37,7 @@ public:
     QString ticket;
 private:
     QUrl url;
+    QByteArray data;
     QNetworkRequest req;
     QNetworkReply *reply;
     QNetworkAccessManager *manager;

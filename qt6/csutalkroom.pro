@@ -11,11 +11,12 @@ CONFIG += c++11
 
 SOURCES += \
     CSUchatting.cpp \
-    main.cpp
+    main.cpp \
+    renew.cpp
 
 HEADERS += \
      CSUchatting.h \
-     zcsu.h
+     renew.h
 
 FORMS += \
     CSUchatting.ui

@@ -35,7 +35,7 @@ void CSUchatting::startRequest(const QString &requestedUrl){
     req.setUrl(url);
     //post 的填充拼接
     QString data_load = "ticket="+ticket;
-    QByteArray data = data_load.toUtf8();
+    data = data_load.toUtf8();
     //获得网页回应
     reply = manager->post(req,data);
     //当完成网页信息获取后执行replyFinished
@@ -58,6 +58,11 @@ void CSUchatting::replyFinished(){
     qDebug()<<"statusCode: "<<statusCode;
     //状态码正常输出内容
     if(statusCode>=200&&statusCode<300){
+        //创建子线程进行renew操作
+        ReNew *rn = new ReNew;
+        rn->preRun(QUrl("http://c76d3656e.top:8003/chat/user/renew?nick=" + nick),data);
+        rn->start();
+        //输出网页内容
         QString all = reply->readAll();
         qDebug()<<all;
         ui->msgBox->setText(all);
